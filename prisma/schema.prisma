@@ -21,7 +21,7 @@ model Sub {
   id        Int     @default(autoincrement()) @id
   title     String
   content   String?
-  released Boolean @default(false)
-  principal    Principal?   @relation(fields: [principalId], references: [id])
+  valid Boolean @default(false)
+  principal    Principal?   @relation(fields: [principalId], references: [id], onDelete: Cascade, onUpdate: Cascade)
   principalId  Int?
 }
