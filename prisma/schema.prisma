@@ -15,6 +15,7 @@ model Principal {
   email String  @unique
   name  String?
   subs Sub[]
+  createdAt DateTime @default(now()) @db.Timestamp()
 }
 
 model Sub {
@@ -24,4 +25,5 @@ model Sub {
   valid Boolean @default(false)
   principal    Principal?   @relation(fields: [principalId], references: [id], onDelete: Cascade, onUpdate: Cascade)
   principalId  Int?
+  createdAt DateTime @default(now()) @db.Timestamp() 
 }
